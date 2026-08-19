@@ -2,6 +2,10 @@
 
 
 @layer base {
+  html {
+    font-size: 18px;
+  }
+
   html,
   body {
     @apply bg-zinc-950 text-zinc-100 overflow-x-hidden overflow-y-auto;

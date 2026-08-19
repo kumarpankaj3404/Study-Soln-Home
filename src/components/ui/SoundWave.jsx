@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 
 export default function Soundwave() {
-  // Define realistic audio profiles with distinct height sequences and oscillation speeds
   const bars = [
     { id: 1, heights: ["6px", "20px", "10px", "24px", "6px"], duration: 1.5 },
     { id: 2, heights: ["10px", "32px", "14px", "28px", "10px"], duration: 1.85 },
