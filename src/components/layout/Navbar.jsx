@@ -1,22 +1,53 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { LuBrainCircuit } from "react-icons/lu";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY.current || currentScrollY < 10) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+        setMenuOpen(false);
+      }
+
+      setScrolled(currentScrollY > 10);
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="border-b border-zinc-600 px-4 py-2 relative bg-zinc-950/80 backdrop-blur-md">
+    <nav
+      className={`
+        fixed top-0 left-0 right-0 z-50
+        border-b border-zinc-600 px-4 py-2
+        backdrop-blur-md
+        transition-all duration-300 ease-in-out
+        ${visible ? 'translate-y-0' : '-translate-y-full'}
+        ${scrolled ? 'bg-zinc-950/95 shadow-lg shadow-black/30' : 'bg-zinc-950/80'}
+      `}
+    >
       <div className="flex justify-between items-center">
         <article className="flex items-center gap-6">
-          <h1 className="flex items-center gap-2 text-2xl sm:text-3xl font-bold text-cyan-300/80">
+          <a href='#' className="flex items-center gap-2 text-2xl sm:text-3xl font-bold text-cyan-300/80">
             <LuBrainCircuit />
             Study Solutions
-          </h1>
+          </a>
           <ul className="hidden md:flex items-center gap-4 text-base">
-            <li><a href="/" className="hover:text-cyan-300 transition-colors duration-200">Tutors</a></li>
-            <li><a href="/" className="hover:text-cyan-300 transition-colors duration-200">Features</a></li>
-            <li><a href="/" className="hover:text-cyan-300 transition-colors duration-200">Curriculum</a></li>
+            <li><a href="#flow" className="hover:text-cyan-300 transition-colors duration-200">Flow</a></li>
+            <li><a href="#architecture" className="hover:text-cyan-300 transition-colors duration-200">Architecture</a></li>
+            <li><a href="#workflow" className="hover:text-cyan-300 transition-colors duration-200">Workflow</a></li>
           </ul>
         </article>
 

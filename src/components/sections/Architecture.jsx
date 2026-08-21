@@ -21,7 +21,7 @@ const Architecture = () => {
         }
     ];
   return (
-    <div className="flex flex-col gap-5 z-10">
+    <div className="flex flex-col gap-5 z-10" id="architecture">
         <h1 className="text-2xl font-bold text-center">Cognitive Architecture</h1>
         <p className="text-md font-light text-center text-zinc-300/80">
             A purpose-built inference pipeline designed for real-time educational dialogue

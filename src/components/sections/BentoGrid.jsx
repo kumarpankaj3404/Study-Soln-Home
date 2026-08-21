@@ -9,7 +9,7 @@ const BentoGrid = () => {
     ]
     const [currentPersona, setCurrentPersona] = useState(personas[0].id);
   return (
-    <div className="flex flex-col gap-5 items-center py-10 full-bleed no-pad px-4 md:px-8 lg:px-20 z-10">
+    <div className="flex flex-col gap-5 items-center py-10 full-bleed no-pad px-4 md:px-8 lg:px-20 z-10 " id="flow">
         <h1 className='text-3xl md:text-4xl font-bold text-center'>Engineered for Flow</h1>
         <section className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-4 w-full *:bg-zinc-800/80 *:rounded-xl *:p-3 *:px-5 *:border *:border-zinc-700 ">
             <article className="md:col-span-2 flex flex-col gap-2">

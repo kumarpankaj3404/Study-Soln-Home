@@ -21,7 +21,7 @@ const Workflow = () => {
         }
     ]
   return (
-    <section className="flex flex-col gap-5 items-center z-10">
+    <section className="flex flex-col gap-5 items-center z-10" id="workflow">
         <h1 className='text-2xl font-bold text-center'>Seamless Workflow</h1>
         <p className='text-center text-zinc-300/80'>Built on a performant foundation for frictionless study routines.</p>
         <article 
