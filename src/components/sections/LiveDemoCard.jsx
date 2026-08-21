@@ -10,11 +10,17 @@ const LiveDemoCard = () => {
     const [isMicOn, setIsMicOn] = useState(false);
     return (
         <div className='z-10 flex flex-col items-center gap-10'>
-            <button className="flex items-center gap-2 bg-cyan-400  text-zinc-950 py-3 sm:py-4 px-5 rounded-md hover:bg-cyan-600 hover:text-cyan-200 transition-all duration-200 text-base sm:text-lg hover:cursor-pointer">
-                <MdOutlineMicNone className="text-xl" />
-                Start Voice Session
-            </button>
+            <a href="https://studysolution.pankajkumar.app" target="_blank" rel="noopener noreferrer" className='w-full flex justify-center'>
+                <button 
+                    className="flex items-center gap-2 bg-cyan-400  text-zinc-950   py-3 sm:py-4 px-5 rounded-md hover:bg-cyan-600 hover:text-cyan-200 transition-all duration-200 text-base sm:text-lg hover:cursor-pointer"
+                >
+                    <MdOutlineMicNone className="text-xl" />
+                    Start Voice Session
+                </button>
+            </a>
+
             <SoundWave />
+            
             <div className="flex flex-col gap-5 items-center border border-white/10 rounded-xl p-5 bg-zinc-800/80 backdrop-blur-md w-full no-pad">
                 <div className="flex  justify-between w-full">
                     <span className="flex gap-3">
@@ -47,11 +53,25 @@ const LiveDemoCard = () => {
                         {isMicOn ? <IoMdMicOff title='turn off' /> : <IoMdMic title='turn on' />}
                     </span>
                     <span className="flex gap-2 sm:gap-3 items-center bg-red-600/20 backdrop-blur-sm  border border-red-600/50 text-base">
-                        <MdCallEnd />
+                        <motion.span 
+                            whileHover={{rotate: [20, -20, 20, -20, 20,-20,20,0] , scale: 1.2}} 
+                            transition={{type : "tween", duration: 1}}
+                            className=" "
+                        >
+                            <MdCallEnd />
+                        </motion.span>                  
                         End Session
                     </span>
                     <span>
-                        <IoMdSettings />
+                        <motion.span 
+                            whileHover={{rotate: 180 , scale: 1.2}} 
+                            transition={{type: "spring", stiffness: 300, damping: 20}}
+                            className="flex gap-2 sm:gap-3 items-center bg-zinc-700/20 backdrop-blur-sm  border border-zinc-700/50 text-base "
+                        >
+                        
+                            <IoMdSettings />
+                        </motion.span>
+                        
                     </span>
                 </div>
             </div>

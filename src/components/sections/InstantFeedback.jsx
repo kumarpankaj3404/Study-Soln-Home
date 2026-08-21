@@ -22,7 +22,7 @@ const InstantFeedback = () => {
         <article 
             className="rounded-lg border border-zinc-700/50 bg-zinc-800/80 backdrop-blur-sm w-full"
         >
-            <img src="./src/assets/voice.png" alt="Voice Wave" className="w-full" />
+            <img src="https://res.cloudinary.com/drksg4rho/image/upload/v1787299062/voice_jh6stw.png" alt="Voice Wave" className="w-full" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-zinc-700/50 p-5 ">
                 {features.map(({id, name, desc}) => (
                     <span key={id} className="flex gap-2   z-10">
